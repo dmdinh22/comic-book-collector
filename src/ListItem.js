@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 //import './ListItem.css';
 
 class ListItem extends Component {
+    constructor(props) {
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            selected: false
+        };
+    }
+
+    handleClick() {
+        if (this.props.onSelect) {
+            this.props.onSelect(this.props.key);
+        }
+        this.setState({
+            selected: !this.state.selected
+        });
+    }
+
     render() {
         // this.props == the way JSX sends data down to components/
         // property on this component
@@ -12,7 +29,10 @@ class ListItem extends Component {
 
         // JSX within the return
         return (
-            <div className="comic">
+            <div
+                className={`comic ${this.state.selected ? 'selected' : ''}`}
+                onClick={this.handleClick}
+            >
                 <div className="comic-thumbnail-container">
                     <img
                         className="comic-thumbnail"
