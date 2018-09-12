@@ -5,7 +5,12 @@ import Comics from './Comics';
 
 class App extends Component {
     render() {
-        return <List result={Comics().data.results} />;
+        return (
+            <div>
+                <List result={Comics().data.results} />
+                <List result={Comics().data.results} />
+            </div>
+        );
     }
 }
 
