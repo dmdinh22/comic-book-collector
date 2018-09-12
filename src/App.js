@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import List from './List';
 
-const comic = {
+const comics = {
     code: 200,
     status: 'Ok',
     copyright: '© 2018 MARVEL',
@@ -207,28 +208,7 @@ const comic = {
 
 class App extends Component {
     render() {
-        // destructure and pull out the thumbnail data
-        //  same as 'comic.data.results[0].thumbnail when using 'thumbnail' in JSX
-        const metaData = comic.data.results[0];
-        const { thumbnail, issueNumber, pageCount, dates, prices } = metaData;
-
-        return (
-            <div className="comic">
-                <div className="comic-thumbnail-container">
-                    <img
-                        className="comic-thumbnail"
-                        src={`${thumbnail.path}.${thumbnail.extension}`}
-                    />
-                </div>
-                <div className="comic-data-container">
-                    <h2>{metaData.title}</h2>
-                    <p>Issue: {issueNumber}</p>
-                    <p>Pages: {pageCount}</p>
-                    <p>Date: {new Date(dates[0].date).toLocaleDateString()}</p>
-                    <p>Price: ${prices[0].price}</p>
-                </div>
-            </div>
-        );
+        return <List result={comics.data.results} />;
     }
 }
 
