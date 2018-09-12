@@ -7,7 +7,11 @@ class List extends Component {
         return (
             <div>
                 {this.props.result.map((comic, index) => (
-                    <ListItem key={index} comicData={comic} />
+                    <ListItem
+                        key={index}
+                        comicData={comic}
+                        onSelect={this.props.onSelect}
+                    />
                 ))}
             </div>
         );

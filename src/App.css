@@ -24,3 +24,21 @@
 .selected {
   background-color: lightgrey;
 }
+
+.store-container {
+  float: left;
+  margin: 10px;
+  width: 680px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  border: 1px solid #333;
+}
+
+.owned-container {
+  float: left;
+  margin: 10px;
+  width: 680px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  border: 1px solid #333;
+}
