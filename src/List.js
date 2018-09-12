@@ -4,7 +4,13 @@ import ListItem from './ListItem';
 
 class List extends Component {
     render() {
-        return <ListItem comicData={this.props.result[0]} />;
+        return (
+            <div>
+                {this.props.result.map((comic, index) => (
+                    <ListItem key={index} comicData={comic} />
+                ))}
+            </div>
+        );
     }
 }
 
